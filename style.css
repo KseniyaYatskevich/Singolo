@@ -101,6 +101,7 @@
     right: 10px;
     width: 16px;
     height: 27px;
+    cursor: pointer;
 }
 
 .slider__wrapper:after {
@@ -109,6 +110,7 @@
     left: 10px;
     width: 16px;
     height: 27px;
+    cursor: pointer;
 }
 
 .slider__image {
