@@ -145,6 +145,7 @@
 
 .person__social {
     margin-top: 23px;
+    display: flex;
 }
 
 .social__link {
@@ -152,10 +153,6 @@
     width: 35px;
     height: 35px;
     margin-right: 5px;
-}
-
-.person__social {
-    display: flex;
 }
 
 .social__link_fb {
