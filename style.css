@@ -176,6 +176,8 @@ header {
 
 .services__icon {
     margin: 1px 0 0 1px;
+    width: 62px;
+    height: 61px;
 }
 
 .description__title {
