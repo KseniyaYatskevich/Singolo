@@ -10,7 +10,7 @@
 }
 
 .contact__wrapper {
-    padding: 71px 40px;
+    padding: 71px 40px 12px;
 }
 
 .contact {
@@ -86,6 +86,23 @@
     padding-top: 8px;
 }
 
+.form__button {
+    color: #f48c8f;
+    font-family: "Lato", sans-serif;
+    background-color: #2d303a;
+    border: 0;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form__button:hover {
+    color: #f0d8d9;
+    background-color: #383c47;
+    transition: all 0.3s ease-in;
+}
+
 .contact-info {
     margin: 0px 0 0 21px;
 }
@@ -115,17 +132,16 @@
 .ico {
     cursor: pointer;
     display: inline-block;
-    /* margin-top: 2px; */
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    /* margin-bottom: 1px; */
 } 
 
 .ico_location {
     background-image: url("./assets/contact-icons/ico-location-pin.svg");
+    
 }
 
 .ico_phone {
@@ -135,8 +151,9 @@
 .ico_letter {
     background-image: url("./assets/contact-icons/ico-mail.svg");
     background-size: cover;
-    width: 13px;
-    height: 8px;
+    background-position-y: top;
+    width: 14px;
+    height: 10px;
 }
 
 .contact-info__link {
