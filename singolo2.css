@@ -113,6 +113,7 @@
 }
 
 .person__name {
+    white-space: nowrap;
     font-size: 18px;
     line-height: 41px;
     color: #666d89;
