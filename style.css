@@ -194,6 +194,8 @@ header {
     font-size: 1.2rem;
     line-height: 2.2rem;
     color: #767e9e;
+    overflow: hidden;
+    height: 64px;
 }
 
 .description {
@@ -300,6 +302,8 @@ header {
     line-height: 2.1rem;
     color: #767e9e;
     text-align: justify;
+    overflow: hidden;
+    height: 41px;
 }
 
 .person__info_first {
