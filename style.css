@@ -93,6 +93,10 @@ header {
     color: #f06c64; 
 }
 
+.active-menu {
+    color: #f06c64; 
+}
+
 .navigation__item:last-child:before {
     content:"";
 }
