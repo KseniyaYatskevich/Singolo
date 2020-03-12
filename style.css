@@ -205,7 +205,7 @@ header {
 /* Section portfolio */
 
 .portfolio__wrapper {
-    padding: 67px 40px 47px;
+    padding: 66px 40px 47px;
 }
 
 .portfolio {
@@ -265,11 +265,11 @@ header {
 }
 
 .about-us__wrapper {
-    padding: 66px 40px 65px;
+    padding: 67px 40px 64px;
 }
 
 .employee {
-    margin-top: 46px;
+    margin-top: 44px;
     display: flex;
 }
 
@@ -289,12 +289,13 @@ header {
 
 .person__name {
     white-space: nowrap;
+    overflow: hidden;
     font-size: 1.8rem;
-    line-height: 4.5rem;
+    line-height: 4.3rem;
     color: #666d89;
     font-weight: 900;
     letter-spacing: -0.01em;
-    margin: 1px 0 -1px 0px;
+    margin: 2px 0 -1px 0px;
 }
 
 .person__info {
@@ -320,7 +321,7 @@ header {
 } 
 
 .social {
-    margin-top: 23px;
+    margin-top: 24px;
     display: flex;
 }
 
@@ -426,12 +427,12 @@ header {
 }
 
 .contact-info {
-    margin: 0px 0 0 21px;
+    margin: 2px 0 0 21px;
 }
 
 .contact-info__title {
     font-size: 1.8rem;
-    line-height: 1.8rem;
+    line-height: 1.6rem;
     color: #f0d8d9;
     font-weight: 900;
     text-align: justify;
@@ -482,6 +483,10 @@ header {
     color: #f0d8d9;
     text-decoration: none;
     line-height: 2rem;
+}
+
+.links {
+    margin-top: -3px;
 }
 
 /* Footer */
