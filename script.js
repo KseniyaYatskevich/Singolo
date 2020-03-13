@@ -1,6 +1,14 @@
-const navigation = document.getElementById('navigation');
+window.onload = function () {
+  addNavigationClickHandler();
+}
 
-navigation.addEventListener( 'click', (e) => {
-  navigation.querySelector('.active-menu').classList.remove('active-menu');
-  e.target.classList.add('active-menu');
-})
+const addNavigationClickHandler = () => {
+  const navigation = document.getElementById('navigation');
+  navigation.addEventListener( 'click', (e) => {
+    const target = e.target;
+    if(target.classList.contains('navigation__link')) {
+      navigation.querySelector('.active-menu').classList.remove('active-menu');
+      target.classList.add('active-menu');
+    }
+  })
+}
