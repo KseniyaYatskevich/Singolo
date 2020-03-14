@@ -1,6 +1,8 @@
 window.onload = function () {
   addNavigationClickHandler();
   addPhoneClickHandler();
+  addTagClickHandler();
+  addImagePortfolioClickHandler();
 }
 
 const addNavigationClickHandler = () => {
@@ -23,3 +25,34 @@ const addPhoneClickHandler = () => {
     } else parentNode.classList.add('phone_off')
   })
 };
+
+const addTagClickHandler = () => {
+  const tags = document.querySelector('.portfolio-tags');
+  tags.addEventListener('click', (e) => {
+    const {target} = e;
+    if (target.classList.contains('portfolio-tags__button')) {
+      tags.querySelector('.active-tag').classList.remove('active-tag');
+      target.classList.add('active-tag');
+      randomAppendImages();
+    }
+  });
+}
+
+const portfolioImagesGroup = document.querySelector('.columns-4');
+
+const randomAppendImages = () => {
+  const portfolioImage = document.querySelectorAll('.portfolio__image');
+  Array.from(portfolioImage).sort(() => Math.random() - 0.5).forEach(item => portfolioImagesGroup.append(item));  
+}
+
+const addImagePortfolioClickHandler = () => {
+  portfolioImagesGroup.addEventListener('click', (e) => {
+    const {target} = e;
+    if (target.classList.contains('portfolio__image')) {
+      if (portfolioImagesGroup.querySelector('.active-image')) {
+        portfolioImagesGroup.querySelector('.active-image').classList.remove('active-image');
+        target.classList.add('active-image');
+      } else target.classList.add('active-image');       
+    }
+  })
+}

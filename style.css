@@ -15,6 +15,12 @@ html {
     margin: 0 auto;
 }
 
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
+
 .section__text {
     font-size: 1.8rem;
     line-height: 3rem;
@@ -119,7 +125,7 @@ header {
 .slider__wrapper {
     display: flex;
     position: relative;    
-    padding: 52px 42px 59px;
+    padding: 52px 42px 57px;
     align-items: center;
 }
 
@@ -130,6 +136,7 @@ header {
     width: 16px;
     height: 27px;
     cursor: pointer;
+    z-index: 10;
 }
 
 .slider__wrapper:after {
@@ -139,6 +146,7 @@ header {
     width: 16px;
     height: 27px;
     cursor: pointer;
+    z-index: 10;
 }
 
 .phone {
@@ -149,8 +157,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 52px;
-    padding-right: 56px;
+    padding-left: 54px;
+    padding-right: 54px;
 }
 
 .phone__image_vertical{
@@ -169,12 +177,14 @@ header {
     right: 89px;
 }
 
-.screen_black {
-  opacity: 0;
-}
-
 .phone_off > .screen{
     opacity: 0;
+}
+
+.slider__image_blue {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 /* section Services */
@@ -265,6 +275,10 @@ header {
     overflow: hidden;    
 }
 
+.portfolio__image:hover {
+    cursor: pointer;
+}
+
 .portfolio-tags {
     margin-bottom: 18px;
     padding-left: 2px;
@@ -291,6 +305,16 @@ header {
     cursor: pointer;
     color: #c5c5c5;
     border-color: #c5c5c5;
+}
+
+.active-tag {
+    color: #c5c5c5;
+    border-color: #c5c5c5;
+}
+
+.active-image {
+    border: 5px solid #F06C64;
+    
 }
 
 /* Section About Us */
