@@ -118,7 +118,7 @@ header {
 
 .slider__wrapper {
     display: flex;
-    justify-content: space-between;
+    position: relative;    
     padding: 52px 42px 59px;
     align-items: center;
 }
@@ -141,8 +141,40 @@ header {
     cursor: pointer;
 }
 
+.phone {
+    position: relative;
+}
+
 .slider__image {
-    margin-right: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 52px;
+    padding-right: 56px;
+}
+
+.phone__image_vertical{
+    margin-right: 71px;
+}
+
+.screen-black_vertical {
+    position: absolute;
+    top: 63px;
+    left: 12px;
+}
+
+.screen-black_horizontal {
+    position: absolute;
+    top: 12px;
+    right: 89px;
+}
+
+.screen_black {
+  opacity: 0;
+}
+
+.phone_off > .screen{
+    opacity: 0;
 }
 
 /* section Services */
