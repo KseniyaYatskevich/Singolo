@@ -4,12 +4,14 @@ window.onload = function () {
   addTagClickHandler();
   addImagePortfolioClickHandler();
   addSubmitClickHandler();
+  prevSlideClickHandler();
+  nextSlideClickHandler();
 }
 
 const addNavigationClickHandler = () => {
   const navigation = document.getElementById('navigation');
   navigation.addEventListener('click', (e) => {
-    const target = e.target;
+    const {target} = e;
     if (target.classList.contains('navigation__link')) {
       navigation.querySelector('.active-menu').classList.remove('active-menu');
       target.classList.add('active-menu');
@@ -83,8 +85,7 @@ const createModalWindow = () => {
   overlay.append(modal);
   if (document.getElementById('inputName').value && document.getElementById('inputEmail').value) {
     document.body.append(overlay);
-  }
-  
+  }  
 }
 
 function contentGenerate(element) {  
@@ -92,11 +93,11 @@ function contentGenerate(element) {
   let description = 'Без описания';
   const inputSubject = document.getElementById('inputSubject').value;
   const inputDescription = document.getElementById('inputDetail').value;
-  if (inputSubject.toUpperCase() === 'SINGOLO') {
+  if (inputSubject.toUpperCase() !== '') {
     const topicValue = `${inputSubject[0].toUpperCase() + inputSubject.slice(1).toLowerCase()}`;
     topic = `Тема: ${topicValue}`;
   }
-  if (inputDescription.toUpperCase() === 'PORTFOLIO PROJECT') {
+  if (inputDescription.toUpperCase() !== '') {
     const descrictionValue = `${inputDescription[0].toUpperCase() + inputDescription.slice(1).toLowerCase()}`;
     description = `Описание: ${descrictionValue}`;
   }
@@ -118,3 +119,57 @@ const cleanForm = () => {
   Array.from(inputs).forEach(input => input.value = '');
 }
 
+const slideWidth = 900;
+const sliderList = document.querySelector('.slider__list');
+const sliderSection = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slider__image');
+let position = 0;
+
+function prevSlideClickHandler() {
+  const prevSlide = document.querySelector('.slider-arow_prev');
+  prevSlide.addEventListener('click', scrollToPrev);
+}
+
+function nextSlideClickHandler() {
+  const nextSlide = document.querySelector('.slider-arow_next');
+  nextSlide.addEventListener('click', scrollToNext);
+}
+
+function scrollToNext() {
+  event.preventDefault();
+  position--;
+  if (position < 0) {
+    const children = sliderList.children;
+    sliderList.style.transition = null;
+    sliderList.style.left = -(position + 2) * slideWidth + 'px';
+    sliderList.insertBefore(children[slides.length - 1], children[0]);
+    children[0].offsetParent;
+    position++;
+  }
+  sliderList.style.transition = 'left 0.8s ease-in';
+  sliderList.style.left = -(slideWidth * position) + 'px';
+  addClass(sliderSection, 'slider_blue');
+}
+
+
+function scrollToPrev() {
+  event.preventDefault();
+  position++;
+  if (position > slides.length - 1) {
+    const children = sliderList.children;
+    sliderList.style.transition = null;
+    sliderList.style.left = -(position - 2) * slideWidth + 'px';
+    sliderList.appendChild(children[0]);
+    children[0].offsetParent;
+    position--;
+  }
+  sliderList.style.transition = 'left 0.8s ease-in';
+  sliderList.style.left = -(slideWidth * position) + 'px';
+  addClass(sliderSection,'slider_blue');
+}
+
+function addClass(element, classElement) {
+  if (element.classList.contains(classElement)) {
+    element.classList.remove(classElement);
+  } else element.classList.add(classElement);
+};
