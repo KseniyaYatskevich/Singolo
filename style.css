@@ -481,6 +481,7 @@ header {
 
 .form {
     display: flex;
+    position: relative;
     flex-direction: column;
 }
 
@@ -494,10 +495,34 @@ header {
     margin-bottom: 16px;
     padding: 0 14px;
 }
-/* 
+
 .form__input-required:invalid {
     border: 1px solid red;
-} */
+}
+
+.valid-name {
+    padding: 10px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.74);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    right: 34px;
+    top: 10px;
+}
+
+.valid-mail {
+    padding: 10px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.74);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    right: 34px;
+    top: 65px;
+}
+
+.valid-mail_none, .valid-name_none {
+    display: none;
+}
 
 .form__input::placeholder {
     font-family: "Lato", sans-serif;
@@ -611,6 +636,7 @@ header {
 
 .modal {
     display: flex;
+    width: 500px;
     flex-direction: column;
     align-items: center;
     justify-content: center;

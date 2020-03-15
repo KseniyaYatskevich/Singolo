@@ -85,19 +85,22 @@ const createModalWindow = () => {
   modal.append(content);
   modal.append(closeButton);
   overlay.append(modal);
-  // if (document.getElementById('inputName').value && document.getElementById('inputEmail').value) {
-  //   document.body.append(overlay);
-  // }  
-  validationFormCheck();
+  validationFormCheck(overlay);
 }
 
-function validationFormCheck() {
+function validationFormCheck(appendNode) {
   const nameInput = document.getElementById('inputName');
   const mailInput = document.getElementById('inputEmail');
-  console.log(nameInput.checkValidity(), 1);
-  console.log(mailInput.checkValidity(), 2);
+  const invalidNamemessage = document.querySelector('.valid-name');
+  const invalidMailMessage = document.querySelector('.valid-mail');
+  if (!nameInput.checkValidity()) {
+    invalidNamemessage.classList.remove('valid-name_none');
+  } else invalidNamemessage.classList.add('valid-name_none');
+  if (!mailInput.checkValidity()) {
+    invalidMailMessage.classList.remove('valid-mail_none');
+  } else invalidMailMessage.classList.add('valid-mail_none');
   if (nameInput.checkValidity() && mailInput.checkValidity()) {
-    document.body.append(overlay);
+    document.body.append(appendNode);
   } 
 }
 
@@ -106,13 +109,11 @@ function contentGenerate(element) {
   let description = 'Без описания';
   const inputSubject = document.getElementById('inputSubject').value;
   const inputDescription = document.getElementById('inputDetail').value;
-  if (inputSubject.toUpperCase() !== '') {
-    const topicValue = `${inputSubject[0].toUpperCase() + inputSubject.slice(1).toLowerCase()}`;
-    topic = `Тема: ${topicValue}`;
+  if (inputSubject !== '') {
+    topic = `Тема: ${inputSubject}`;
   }
-  if (inputDescription.toUpperCase() !== '') {
-    const descrictionValue = `${inputDescription[0].toUpperCase() + inputDescription.slice(1).toLowerCase()}`;
-    description = `Описание: ${descrictionValue}`;
+  if (inputDescription !== '') {
+    description = `Описание: ${inputDescription}`;
   }
   element.innerHTML = `<h3 class='modal__title'>Письмо отправлено</h3>  
     <p>${topic}</p>  
