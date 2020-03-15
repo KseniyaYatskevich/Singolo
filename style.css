@@ -191,18 +191,40 @@ header {
 
 .phone__image_vertical{
     margin-right: 71px;
+    position: relative;
+    z-index: 10;
+    
+}
+
+.phone__image_horizontal {
+    position: relative;
+    z-index: 10;
+}
+
+.phone__shadow_vertical {
+    position: absolute;
+    top: 0px;
+    right: 47px;
+}
+
+.phone__shadow_horizontal {
+    position: absolute;
+    top: 0px;
+    right: -23px;    
 }
 
 .screen-black_vertical {
     position: absolute;
     top: 63px;
     left: 12px;
+    z-index: 20;
 }
 
 .screen-black_horizontal {
     position: absolute;
     top: 12px;
-    right: 89px;
+    right: 64px;
+    z-index: 20;
 }
 
 .phone_off > .screen{

@@ -5,7 +5,7 @@ window.onload = function () {
   addImagePortfolioClickHandler();
   addSubmitClickHandler();
   prevSlideClickHandler();
-  nextSlideClickHandler();
+  nextSlideClickHandler();  
 }
 
 const addNavigationClickHandler = () => {
@@ -23,9 +23,11 @@ const addPhoneClickHandler = () => {
   const sliderImage = document.querySelector('.slider__image');
   sliderImage.addEventListener('click', (e) => {
     const {parentNode} = e.target;
-    if (parentNode.classList.contains('phone_off')) {
-      parentNode.classList.remove('phone_off');
-    } else parentNode.classList.add('phone_off')
+    if (!e.target.classList.contains('phone__shadow')) {
+      if (parentNode.classList.contains('phone_off')) {
+        parentNode.classList.remove('phone_off');
+      } else parentNode.classList.add('phone_off');
+    }
   })
 };
 
@@ -83,9 +85,20 @@ const createModalWindow = () => {
   modal.append(content);
   modal.append(closeButton);
   overlay.append(modal);
-  if (document.getElementById('inputName').value && document.getElementById('inputEmail').value) {
+  // if (document.getElementById('inputName').value && document.getElementById('inputEmail').value) {
+  //   document.body.append(overlay);
+  // }  
+  validationFormCheck();
+}
+
+function validationFormCheck() {
+  const nameInput = document.getElementById('inputName');
+  const mailInput = document.getElementById('inputEmail');
+  console.log(nameInput.checkValidity(), 1);
+  console.log(mailInput.checkValidity(), 2);
+  if (nameInput.checkValidity() && mailInput.checkValidity()) {
     document.body.append(overlay);
-  }  
+  } 
 }
 
 function contentGenerate(element) {  
