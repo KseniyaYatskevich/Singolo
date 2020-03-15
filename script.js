@@ -3,6 +3,7 @@ window.onload = function () {
   addPhoneClickHandler();
   addTagClickHandler();
   addImagePortfolioClickHandler();
+  addSubmitClickHandler();
 }
 
 const addNavigationClickHandler = () => {
@@ -56,3 +57,64 @@ const addImagePortfolioClickHandler = () => {
     }
   })
 }
+
+const addSubmitClickHandler = () => {
+  const buttonsubmit = document.querySelector('.form__button');
+  buttonsubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    createModalWindow();
+  })
+}
+
+const createModalWindow = () => {
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
+  const content = document.createElement('div');
+  content.classList.add('modal__content');
+  contentGenerate(content);
+  const closeButton = document.createElement('button');
+  closeButton.classList.add('button_close');
+  closeButton.innerHTML = 'Ok';
+  closeButton.addEventListener('click', closeModalWindow)
+  modal.append(content);
+  modal.append(closeButton);
+  overlay.append(modal);
+  if (document.getElementById('inputName').value && document.getElementById('inputEmail').value) {
+    document.body.append(overlay);
+  }
+  
+}
+
+function contentGenerate(element) {  
+  let topic = 'Без темы';
+  let description = 'Без описания';
+  const inputSubject = document.getElementById('inputSubject').value;
+  const inputDescription = document.getElementById('inputDetail').value;
+  if (inputSubject.toUpperCase() === 'SINGOLO') {
+    const topicValue = `${inputSubject[0].toUpperCase() + inputSubject.slice(1).toLowerCase()}`;
+    topic = `Тема: ${topicValue}`;
+  }
+  if (inputDescription.toUpperCase() === 'PORTFOLIO PROJECT') {
+    const descrictionValue = `${inputDescription[0].toUpperCase() + inputDescription.slice(1).toLowerCase()}`;
+    description = `Описание: ${descrictionValue}`;
+  }
+  element.innerHTML = `<h3 class='modal__title'>Письмо отправлено</h3>  
+    <p>${topic}</p>  
+    <p>${description}</p>`;
+}
+
+function closeModalWindow(e) {
+  let classes = e.target.classList;
+  if(classes.contains('overlay') || classes.contains('button_close')) {
+    document.querySelector('.overlay').remove();
+    cleanForm();
+  }  
+}
+
+const cleanForm = () => {
+  const inputs = document.querySelectorAll('.form__input');
+  Array.from(inputs).forEach(input => input.value = '');
+}
+
