@@ -43,7 +43,9 @@ button, button:active, button:focus {
 
 /* header */
 
-header {  
+header { 
+    position: fixed;
+    z-index: 100; 
     width: 100%;
     background: #2d303a;
     border-bottom: 6px solid #323746;
@@ -129,7 +131,7 @@ header {
     display: flex;
     position: relative; 
     width: 925px;  
-    padding: 54px 42px 57px;
+    padding: 137px 42px 57px;
     align-items: center;
     overflow: hidden;
 }
@@ -192,8 +194,7 @@ header {
 .phone__image_vertical{
     margin-right: 71px;
     position: relative;
-    z-index: 10;
-    
+    z-index: 10;    
 }
 
 .phone__image_horizontal {
@@ -239,7 +240,7 @@ header {
 }
 
 .services__wrapper {
-    padding: 65px 40px 31px 39px;
+    padding: 125px 40px 31px 39px;
 }
 
 .services__title {       
@@ -295,7 +296,7 @@ header {
 /* Section portfolio */
 
 .portfolio__wrapper {
-    padding: 66px 40px 47px;
+    padding: 126px 40px 47px;
 }
 
 .portfolio {
@@ -369,7 +370,7 @@ header {
 }
 
 .about-us__wrapper {
-    padding: 67px 40px 64px;
+    padding: 127px 40px 64px;
 }
 
 .employee {
@@ -456,7 +457,7 @@ header {
 /* Section Contact */
 
 .contact__wrapper {
-    padding: 67px 40px 12px;
+    padding: 127px 40px 12px;
 }
 
 .contact {

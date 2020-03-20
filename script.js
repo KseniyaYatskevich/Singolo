@@ -19,6 +19,22 @@ const addNavigationClickHandler = () => {
   })
 }
 
+document.addEventListener('scroll', onScroll);
+function onScroll(e) {
+  const navigationLinks = document.querySelectorAll('.navigation__link');
+  const currentPosition = window.scrollY;
+  document.querySelectorAll('section').forEach((el) => {
+    if (el.offsetTop <= currentPosition && (el.offsetTop + el.offsetHeight) > currentPosition) {
+      navigationLinks.forEach((a) => {
+        a.classList.remove('active-menu');
+        if (el.getAttribute('id') === a.getAttribute('href').substring(1)) {
+          a.classList.add('active-menu');
+        };
+      });
+    }
+  });
+}
+
 const addPhoneClickHandler = () => {
   const sliderImage = document.querySelector('.slider__image');
   sliderImage.addEventListener('click', (e) => {
@@ -64,7 +80,7 @@ const addImagePortfolioClickHandler = () => {
 
 const addSubmitClickHandler = () => {
   const buttonsubmit = document.querySelector('.form__button');
-  buttonsubmit.addEventListener('click', (e) => {
+  buttonsubmit.addEventListener('submit', (e) => {
     e.preventDefault();
     createModalWindow();
   })
@@ -187,3 +203,4 @@ function addClass(element, classElement) {
     element.classList.remove(classElement);
   } else element.classList.add(classElement);
 };
+
