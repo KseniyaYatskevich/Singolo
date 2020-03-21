@@ -141,11 +141,13 @@ function cleanForm() {
   Array.from(inputs).forEach(input => input.value = '');
 }
 
-const slideWidth = 100;
+const slideWidth = 850;
 const sliderList = document.querySelector('.slider__list');
 const sliderSection = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slider__image');
 let position = 0;
+
+sliderList.style.width = slides.length * slideWidth + 'px';
 
 function prevSlideClickHandler() {
   const prevSlide = document.querySelector('.slider-arow_prev');
@@ -160,32 +162,45 @@ function nextSlideClickHandler() {
 function scrollToNext() {
   event.preventDefault();
   position--;
+
   if (position < 0) {
-    const children = sliderList.children;
+    let children = sliderList.children;
     sliderList.style.transition = null;
-    sliderList.style.left = -(position + 2) * slideWidth + '%';
+    sliderList.style.left = -(position + 2) * slideWidth + 'px';
     sliderList.insertBefore(children[slides.length - 1], children[0]);
     children[0].offsetParent;
     position++;
   }
-  sliderList.style.transition = 'left 0.8s ease-in';
+
+  sliderList.style.transition = 'left 0.6s ease-in-out';
   sliderList.style.left = -(slideWidth * position) + 'px';
-  addClass(sliderSection, 'slider_blue');
+  addClass(sliderSection,'slider_blue');
 }
 
 function scrollToPrev() {
   event.preventDefault();
-  position++;
-  if (position > slides.length - 1) {
-    const children = sliderList.children;
+  if (position === 0) {
+    let children = sliderList.children;
     sliderList.style.transition = null;
-    sliderList.style.left = -(position - 2) * slideWidth + '%';
+    sliderList.style.left = -(position - 2) * slideWidth + 'px';
+    sliderList.appendChild(children[0]);
+    children[0].offsetParent;
+    position++;
+  }
+  
+  position++;
+  
+  if (position > slides.length - 1) {
+    let children = sliderList.children;
+    sliderList.style.transition = null;
+    sliderList.style.left = -(position - 2) * slideWidth + 'px';
     sliderList.appendChild(children[0]);
     children[0].offsetParent;
     position--;
   }
-  sliderList.style.transition = 'left 0.8s ease-in';
-  sliderList.style.left = -(slideWidth * position) + '%';
+
+  sliderList.style.transition = 'left 0.6s ease-in-out';
+  sliderList.style.left = -(slideWidth * position) + 'px';
   addClass(sliderSection,'slider_blue');
 }
 
