@@ -41,6 +41,10 @@ button, button:active, button:focus {
     color: #666d89;
 }
 
+.scroll-hidden {
+    overflow: hidden; 
+}
+
 /* header */
 
 header { 
@@ -130,14 +134,15 @@ header {
     width: 925px;  
     padding: 52px 42px 59px;
     align-items: center;
-    overflow: hidden;
+    justify-content: space-between;
+    overflow: hidden; 
 }
 
 .slider__list {
     position: relative;
+   justify-content: space-between;
     display: flex;
     top: 0;
-    left: 0;
     margin: 0;
     padding: 0;
 }
@@ -148,11 +153,14 @@ header {
 }
 
 .slide {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .phone {
     position: relative;
+    margin-left: 20px;
+    
 }
 
 .slider__image {
@@ -161,7 +169,6 @@ header {
     display: flex;    
     justify-content: center;
     align-items: center;
-    margin: 0 20px;
 }
 
 .slider__image_blue {
@@ -176,16 +183,16 @@ header {
 
 .slider-arow_next {
     position: absolute;
-    right: 9%;
-    bottom: 40%;
+    right: 19%;
+    bottom: 42%;
     opacity: 0.6;
     z-index: 50;
 }
 
 .slider-arow_prev {
     position: absolute;
-    bottom: 40%;
-    left: 9%;
+    bottom: 42%;
+    left: 19%;
     opacity: 0.6;
     z-index: 50;
 }
@@ -610,6 +617,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 120;
 }
 
 .overlay_none {
@@ -618,7 +626,7 @@ header {
 
 .modal {
     display: flex;
-    width: 500px;
+    width: 600px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -633,6 +641,7 @@ header {
     font-size: 1.8rem;
     line-height: 3rem;
     padding-bottom: 20px;
+    text-align: justify;
 }
 
 .modal__title {

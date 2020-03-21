@@ -108,6 +108,7 @@ function createModalWindow() {
   modal.append(closeButton);
   overlay.append(modal);
   document.body.append(overlay);
+  document.body.classList.add('scroll-hidden');
 }
 
 function contentGenerate(element) {  
@@ -130,6 +131,7 @@ function closeModalWindow(e) {
   let classes = e.target.classList;
   if(classes.contains('overlay') || classes.contains('button_close')) {
     document.querySelector('.overlay').remove();
+    document.body.classList.remove('scroll-hidden');
     cleanForm();
   }  
 }
