@@ -3,39 +3,45 @@ window.onload = function () {
   addPhoneClickHandler();
   addTagClickHandler();
   addImagePortfolioClickHandler();
-  addSubmitClickHandler();
+  addSubmitHandler();
   prevSlideClickHandler();
   nextSlideClickHandler();  
+  
 }
 
-const addNavigationClickHandler = () => {
-  const navigation = document.getElementById('navigation');
+function addNavigationClickHandler() {
+  const navigation = document.getElementById('navigation');  
   navigation.addEventListener('click', (e) => {
-    const {target} = e;
+    const {target} = e;    
     if (target.classList.contains('navigation__link')) {
-      navigation.querySelector('.active-menu').classList.remove('active-menu');
+        navigation.querySelector('.active-menu').classList.remove('active-menu');
+        target.classList.add('active-menu');       
       target.classList.add('active-menu');
-    }
+        target.classList.add('active-menu');       
+    }    
   })
 }
 
 document.addEventListener('scroll', onScroll);
-function onScroll(e) {
+
+
+function onScroll() {
   const navigationLinks = document.querySelectorAll('.navigation__link');
-  const currentPosition = window.scrollY;
+  const SCROLL_COMPENSATION = 100;
+  const currentPosition = window.scrollY + SCROLL_COMPENSATION;
   document.querySelectorAll('section').forEach((el) => {
     if (el.offsetTop <= currentPosition && (el.offsetTop + el.offsetHeight) > currentPosition) {
       navigationLinks.forEach((a) => {
         a.classList.remove('active-menu');
         if (el.getAttribute('id') === a.getAttribute('href').substring(1)) {
           a.classList.add('active-menu');
-        };
+        };           
       });
     }
   });
 }
 
-const addPhoneClickHandler = () => {
+function addPhoneClickHandler() {
   const sliderImage = document.querySelector('.slider__image');
   sliderImage.addEventListener('click', (e) => {
     const {parentNode} = e.target;
@@ -47,7 +53,7 @@ const addPhoneClickHandler = () => {
   })
 };
 
-const addTagClickHandler = () => {
+function addTagClickHandler() {
   const tags = document.querySelector('.portfolio-tags');
   tags.addEventListener('click', (e) => {
     const {target} = e;
@@ -61,12 +67,12 @@ const addTagClickHandler = () => {
 
 const portfolioImagesGroup = document.querySelector('.columns-4');
 
-const randomAppendImages = () => {
+function randomAppendImages() {
   const portfolioImage = document.querySelectorAll('.portfolio__image');
   Array.from(portfolioImage).sort(() => Math.random() - 0.5).forEach(item => portfolioImagesGroup.append(item));  
 }
 
-const addImagePortfolioClickHandler = () => {
+function addImagePortfolioClickHandler() {
   portfolioImagesGroup.addEventListener('click', (e) => {
     const {target} = e;
     if (target.classList.contains('portfolio__image')) {
@@ -78,15 +84,15 @@ const addImagePortfolioClickHandler = () => {
   })
 }
 
-const addSubmitClickHandler = () => {
-  const buttonsubmit = document.querySelector('.form__button');
-  buttonsubmit.addEventListener('submit', (e) => {
+function addSubmitHandler() {
+  const form = document.querySelector('.form');
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     createModalWindow();
   })
 }
 
-const createModalWindow = () => {
+function createModalWindow() {
   const overlay = document.createElement('div');
   overlay.classList.add('overlay');
   const modal = document.createElement('div');
@@ -101,23 +107,7 @@ const createModalWindow = () => {
   modal.append(content);
   modal.append(closeButton);
   overlay.append(modal);
-  validationFormCheck(overlay);
-}
-
-function validationFormCheck(appendNode) {
-  const nameInput = document.getElementById('inputName');
-  const mailInput = document.getElementById('inputEmail');
-  const invalidNamemessage = document.querySelector('.valid-name');
-  const invalidMailMessage = document.querySelector('.valid-mail');
-  if (!nameInput.checkValidity()) {
-    invalidNamemessage.classList.remove('valid-name_none');
-  } else invalidNamemessage.classList.add('valid-name_none');
-  if (!mailInput.checkValidity()) {
-    invalidMailMessage.classList.remove('valid-mail_none');
-  } else invalidMailMessage.classList.add('valid-mail_none');
-  if (nameInput.checkValidity() && mailInput.checkValidity()) {
-    document.body.append(appendNode);
-  } 
+  document.body.append(overlay);
 }
 
 function contentGenerate(element) {  
@@ -144,12 +134,12 @@ function closeModalWindow(e) {
   }  
 }
 
-const cleanForm = () => {
+function cleanForm() {
   const inputs = document.querySelectorAll('.form__input');
   Array.from(inputs).forEach(input => input.value = '');
 }
 
-const slideWidth = 900;
+const slideWidth = 100;
 const sliderList = document.querySelector('.slider__list');
 const sliderSection = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slider__image');
@@ -171,7 +161,7 @@ function scrollToNext() {
   if (position < 0) {
     const children = sliderList.children;
     sliderList.style.transition = null;
-    sliderList.style.left = -(position + 2) * slideWidth + 'px';
+    sliderList.style.left = -(position + 2) * slideWidth + '%';
     sliderList.insertBefore(children[slides.length - 1], children[0]);
     children[0].offsetParent;
     position++;
@@ -181,20 +171,19 @@ function scrollToNext() {
   addClass(sliderSection, 'slider_blue');
 }
 
-
 function scrollToPrev() {
   event.preventDefault();
   position++;
   if (position > slides.length - 1) {
     const children = sliderList.children;
     sliderList.style.transition = null;
-    sliderList.style.left = -(position - 2) * slideWidth + 'px';
+    sliderList.style.left = -(position - 2) * slideWidth + '%';
     sliderList.appendChild(children[0]);
     children[0].offsetParent;
     position--;
   }
   sliderList.style.transition = 'left 0.8s ease-in';
-  sliderList.style.left = -(slideWidth * position) + 'px';
+  sliderList.style.left = -(slideWidth * position) + '%';
   addClass(sliderSection,'slider_blue');
 }
 

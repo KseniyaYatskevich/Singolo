@@ -44,7 +44,8 @@ button, button:active, button:focus {
 /* header */
 
 header { 
-    position: fixed;
+    position: sticky;
+    top: 0;
     z-index: 100; 
     width: 100%;
     background: #2d303a;
@@ -98,12 +99,9 @@ header {
     letter-spacing: -0.016em;
 }
 
-.navigation__link:hover {
-    cursor: pointer;
-    color: #f06c64; 
-}
-
+.navigation__link:hover, 
 .active-menu {
+    transition: all 0.2s 0.3s ease;
     color: #f06c64; 
 }
 
@@ -129,9 +127,8 @@ header {
 
 .slider__wrapper {
     display: flex;
-    position: relative; 
     width: 925px;  
-    padding: 137px 42px 57px;
+    padding: 52px 42px 59px;
     align-items: center;
     overflow: hidden;
 }
@@ -179,16 +176,18 @@ header {
 
 .slider-arow_next {
     position: absolute;
-    right: 290px;
-    bottom: 287px;
+    right: 9%;
+    bottom: 40%;
     opacity: 0.6;
+    z-index: 50;
 }
 
 .slider-arow_prev {
     position: absolute;
-    bottom: 287px;
-    left: 293px;
+    bottom: 40%;
+    left: 9%;
     opacity: 0.6;
+    z-index: 50;
 }
 
 .phone__image_vertical{
@@ -237,10 +236,12 @@ header {
 .services {
     background: #f2f2f2;
     border-bottom: 6px solid #ffffff;
+    scroll-margin-top: 95px;
 }
 
 .services__wrapper {
-    padding: 125px 40px 31px 39px;
+    padding: 65px 40px 31px 39px;
+    
 }
 
 .services__title {       
@@ -296,10 +297,12 @@ header {
 /* Section portfolio */
 
 .portfolio__wrapper {
-    padding: 126px 40px 47px;
+    padding: 67px 40px 47px;
+    
 }
 
 .portfolio {
+    scroll-margin-top: 95px;
     background: #2d303a;
     border-bottom: 6px solid #323746;
 }
@@ -365,12 +368,13 @@ header {
 /* Section About Us */
 
 .about-us {
+    scroll-margin-top: 95px;
     background-color: #f2f2f2;
     border-bottom: 6px solid #ffffff;
 }
 
 .about-us__wrapper {
-    padding: 127px 40px 64px;
+    padding: 68px 40px 64px;
 }
 
 .employee {
@@ -457,10 +461,11 @@ header {
 /* Section Contact */
 
 .contact__wrapper {
-    padding: 127px 40px 12px;
+    padding: 67px 40px 12px;
 }
 
 .contact {
+    scroll-margin-top: 95px;
     background: #f06c64;
     border-bottom: 6px solid #ea676b ;    
 }
@@ -499,30 +504,6 @@ header {
 
 .form__input-required:invalid {
     border: 1px solid red;
-}
-
-.valid-name {
-    padding: 10px;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.74);
-    font-size: 1.2rem;
-    border-radius: 5px;
-    right: 34px;
-    top: 10px;
-}
-
-.valid-mail {
-    padding: 10px;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.74);
-    font-size: 1.2rem;
-    border-radius: 5px;
-    right: 34px;
-    top: 65px;
-}
-
-.valid-mail_none, .valid-name_none {
-    display: none;
 }
 
 .form__input::placeholder {

@@ -8,18 +8,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="home">
     <div class="wrapper header__wrapper">
       <div class="logo">
         <a href="#" class="logo__link"><h1 class="logo__title">Singolo</h1></a>
       </div>
       <nav class="header__navigation">
         <ul class="navigation" id="navigation">
-          <li class="navigation__item"><a class="navigation__link active-menu" href="#home">Home</a></li>
-          <li class="navigation__item"><a class="navigation__link" href="#services">Services</a></li>
-          <li class="navigation__item"><a class="navigation__link" href="#portfolio">Portfolio</a></li>
-          <li class="navigation__item"><a class="navigation__link" href="#about-us">About</a></li>
-          <li class="navigation__item"><a class="navigation__link" href="#contacts">Contact</a></li>
+          <li class="navigation__item">
+            <a class="navigation__link active-menu" href="#home">Home</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#services">Services</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#about-us">About</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#contacts">Contact</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -202,9 +212,7 @@
         <div class="column-2">
           <form action="#" method="GET" class="form" autocomplete="off">
             <input class="form__input form__input-required" type="text" name="name" id="inputName" placeholder="Name (Required)" required>
-            <span class="valid-name valid-name_none">Please, input valid name!</span>
             <input class="form__input form__input-required" type="email" name="email" id="inputEmail" placeholder="Email (Required)" required>
-            <span class="valid-mail valid-mail_none">Please, input valid email!</span>
             <input class="form__input" type="text" name="subject" id="inputSubject" placeholder="Subject">
             <textarea class="form__input form__textarea" name="detail" id="inputDetail" cols="30" rows="10" placeholder="Describe your project in detail..." maxlength=1000></textarea>
             <input class="form__button" type="submit" value="Submit">
