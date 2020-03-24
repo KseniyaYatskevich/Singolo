@@ -68,7 +68,7 @@ function addTagClickHandler() {
 const portfolioImagesGroup = document.querySelector('.columns-4');
 
 function randomAppendImages() {
-  const portfolioImage = document.querySelectorAll('.portfolio__image');
+  const portfolioImage = document.querySelectorAll('.columns-4 li');
   Array.from(portfolioImage).sort(() => Math.random() - 0.5).forEach(item => portfolioImagesGroup.append(item));  
 }
 
@@ -141,13 +141,13 @@ function cleanForm() {
   Array.from(inputs).forEach(input => input.value = '');
 }
 
-const slideWidth = 850;
+const slideWidth = 940;
 const sliderList = document.querySelector('.slider__list');
 const sliderSection = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slider__image');
 let position = 0;
 
-sliderList.style.width = slides.length * slideWidth + 'px';
+
 
 function prevSlideClickHandler() {
   const prevSlide = document.querySelector('.slider-arow_prev');

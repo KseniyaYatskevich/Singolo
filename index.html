@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="home">
     <div class="wrapper header__wrapper">
       <div class="logo">
         <a href="#" class="logo__link"><h1 class="logo__title">Singolo</h1></a>
@@ -31,17 +31,12 @@
             <a class="navigation__link" href="#contacts">Contact</a>
           </li>
         </ul>
-      </nav>
+      </nav>       
     </div>
   </header>
   <main>
-    <section class="slider" id="home">
+    <!-- <section class="slider" id="home">
       <div class="wrapper slider__wrapper"> 
-        <div class="slider-arow">
-          <a href="#">
-            <img class="slider-arow_prev" src="./assets/icons/sliderLeft.png" alt="slider left">
-          </a>
-        </div>         
         <div class="slider__list">
           <div class="slider__image slide">
             <div class="phone">
@@ -59,13 +54,16 @@
             <img src="./assets/images/groupPhones.png" alt="">
           </div>          
         </div>
+        <div class="slider-arows">
+          <a href="#" class="slider-arow_next">
+            <img src="./assets/icons/sliderRight.png" alt="slider right">
+          </a>
+          <a href="#" class="slider-arow_prev">
+            <img src="./assets/icons/sliderLeft.png" alt="slider left">
+          </a>
+        </div>
       </div>     
-      <div class="slider-arow">
-        <a href="#">
-          <img  class="slider-arow_next" src="./assets/icons/sliderRight.png" alt="slider right">
-        </a>
-      </div>
-    </section>
+    </section> -->
     <section class="services" id="services">
       <div class="wrapper services__wrapper">
         <h2 class="services__title section__title">Our Services</h2>
@@ -139,28 +137,28 @@
     </section>
     <section class="portfolio" id="portfolio">
         <div class="wrapper portfolio__wrapper">
-            <h2 class="section__title portfolio__title">Portfolio</h2>
-            <p class="section__text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-            <div class="portfolio-tags">
-                <button class="portfolio-tags__button active-tag">All</button>
-                <button class="portfolio-tags__button">Web Design</button>
-                <button class="portfolio-tags__button">Graphic Design</button>
-                <button class="portfolio-tags__button">Artwork</button>
-            </div>
-            <div class="columns-4">
-              <img src="./assets/portfolio-images/row1/row1-1.png" alt="Project 1" class="portfolio__image">
-              <img src="./assets/portfolio-images/row1/row1-2.png" alt="Project 2" class="portfolio__image">
-              <img src="./assets/portfolio-images/row1/row1-3.png" alt="Project 3" class="portfolio__image">
-              <img src="./assets/portfolio-images/row1/row1-4.png" alt="Project 4" class="portfolio__image">
-              <img src="./assets/portfolio-images/row2/row2-1.png" alt="Project 5" class="portfolio__image">
-              <img src="./assets/portfolio-images/row2/row2-2.png" alt="Project 6" class="portfolio__image">
-              <img src="./assets/portfolio-images/row2/row2-3.png" alt="Project 7" class="portfolio__image">
-              <img src="./assets/portfolio-images/row2/row2-4.png" alt="Project 8" class="portfolio__image">
-              <img src="./assets/portfolio-images/row3/row3-1.png" alt="Project 9" class="portfolio__image">
-              <img src="./assets/portfolio-images/row3/row3-2.png" alt="Project 10" class="portfolio__image">
-              <img src="./assets/portfolio-images/row3/row3-3.png" alt="Project 11" class="portfolio__image">
-              <img src="./assets/portfolio-images/row3/row3-4.png" alt="Project 12" class="portfolio__image">
-            </div>
+          <h2 class="section__title portfolio__title">Portfolio</h2>
+          <p class="section__text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+          <div class="portfolio-tags">
+              <button class="portfolio-tags__button active-tag">All</button>
+              <button class="portfolio-tags__button">Web Design</button>
+              <button class="portfolio-tags__button">Graphic Design</button>
+              <button class="portfolio-tags__button">Artwork</button>
+          </div>
+          <ul class="columns-4">
+            <li><img src="./assets/portfolio-images/row1/row1-1.png" alt="Project 1" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row1/row1-2.png" alt="Project 2" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row1/row1-3.png" alt="Project 3" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row1/row1-4.png" alt="Project 4" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row2/row2-1.png" alt="Project 5" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row2/row2-2.png" alt="Project 6" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row2/row2-3.png" alt="Project 7" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row2/row2-4.png" alt="Project 8" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row3/row3-1.png" alt="Project 9" class="portfolio__image"></li> 
+            <li><img src="./assets/portfolio-images/row3/row3-2.png" alt="Project 10" class="portfolio__image"></li>  
+            <li><img src="./assets/portfolio-images/row3/row3-3.png" alt="Project 11" class="portfolio__image"></li>  
+            <li><img src="./assets/portfolio-images/row3/row3-4.png" alt="Project 12" class="portfolio__image"></li> 
+          </ul>
         </div>
     </section>
     <section class="about-us" id="about-us">
@@ -171,7 +169,7 @@
           <div class="person">
             <img src="./assets/person-photo/adam.png" alt="Adam" class="person__photo">
             <h3 class="person__name">Adam Jensen</h3>
-            <p class="person__info person__info_first">Quisque luctus, quam eget molestie commodo, lacus purus <span>cursus purus, nec rutrum tellus dolor id lorem.</span></p>
+            <p class="person__info person__info_first">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
             <div class="social">
               <a href="#" class="social__link_fb social__link"></a>
               <a href="#" class="social__link_google social__link"></a>
