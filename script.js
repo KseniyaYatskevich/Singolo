@@ -6,7 +6,8 @@ window.onload = function () {
   addSubmitHandler();
   prevSlideClickHandler();
   nextSlideClickHandler();  
-  
+  mobileNavigationClickHandler();
+  menuItemClickHandler();
 }
 
 function addNavigationClickHandler() {
@@ -210,3 +211,27 @@ function addClass(element, classElement) {
   } else element.classList.add(classElement);
 };
 
+const navigation = document.querySelector('.header__navigation');
+const mobileNav = document.querySelector('.mobile-navigation');
+const mobileOverlay = document.querySelector('.mobile-navigation__overlay');
+
+function mobileNavigationClickHandler() {
+  mobileNav.addEventListener('click', (e) => {
+    const {target} = e;
+    addClass(target.parentNode, 'active');
+    addClass(mobileOverlay, 'active');
+    addClass(navigation, 'navigation_mobile')
+  })
+}
+
+function menuItemClickHandler() {
+  const header = document.querySelector('.header__wrapper');
+  header.addEventListener('click', (e) => {
+  const {target} = e;
+  if (target.classList.contains('navigation__link') || target.classList.contains('mobile__navigation') ) {
+    addClass(mobileOverlay, 'active');
+    addClass(mobileNav, 'active');
+    addClass(navigation, 'navigation_mobile')
+  }
+  })
+}
