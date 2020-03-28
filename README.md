@@ -1,1 +1,1 @@
-[Link to Singolo](https://kseniyayatskevich.github.io/Singolo/)
+[Singolo DOM and Responsive](https://goofy-joliot-938711.netlify.com/)
