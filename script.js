@@ -151,12 +151,14 @@ function addClass(element, classElement) {
 const navigation = document.querySelector('.header__navigation');
 const mobileNav = document.querySelector('.mobile-navigation');
 const mobileOverlay = document.querySelector('.mobile-navigation__overlay');
+const logo = document.querySelector('.logo__title');
 
 function mobileNavigationClickHandler() {
   mobileNav.addEventListener('click', (e) => {
     const {target} = e;
     addClass(target.parentNode, 'active');
     addClass(mobileOverlay, 'active');
+    addClass(logo, 'logo__title_mobile');
     addClass(navigation, 'navigation_mobile')
   })
 }
